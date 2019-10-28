@@ -224,7 +224,7 @@ public class ImageScalerImpl implements ImageScaler {
         LOG.debug(System.currentTimeMillis() - start + " ms");
     }
 
-    /**
+    /*
      * Write a image to a file.
      */
     protected void write(final OutputStream target, final ImageFormat targetFormat,
@@ -244,7 +244,7 @@ public class ImageScalerImpl implements ImageScaler {
         }
     }
 
-    /**
+    /*
      * Convert a {@link BufferedImage} into another {@link ColorSpaces}.
      */
     protected BufferedImage convertToColorSpace(final ColorSpace colorSpace, final BufferedImage source) {

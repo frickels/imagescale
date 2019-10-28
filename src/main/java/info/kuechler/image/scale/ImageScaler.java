@@ -134,7 +134,7 @@ public interface ImageScaler {
      * 
      * @param source
      *            the source file
-     * @param target
+     * @param targetFolder
      *            the target file. If the file exists, it will be overwritten.
      * @param borders
      *            the target sizes. The height and width is calculated with a constant aspect ratio. One value is the
@@ -151,7 +151,7 @@ public interface ImageScaler {
      * 
      * @param source
      *            the source file
-     * @param target
+     * @param targetFolder
      *            the target file. If the file exists, it will be overwritten.
      * @param borders
      *            the target sizes. The height and width is calculated with a constant aspect ratio. One value is the
