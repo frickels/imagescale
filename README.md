@@ -2,3 +2,5 @@
 
 Image scaling for JPEG, PNG and GIF. It is a wrapper for [TwelveMonkeys](https://github.com/haraldk/TwelveMonkeys).
 
+* project data: https://frickels.github.io/imagescale/
+* javadoc: https://frickels.github.io/imagescale/apidocs/
