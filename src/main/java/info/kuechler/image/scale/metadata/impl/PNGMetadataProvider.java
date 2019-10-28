@@ -1,4 +1,6 @@
-package info.kuechler.image.scale.metadata;
+package info.kuechler.image.scale.metadata.impl;
+
+import static info.kuechler.image.scale.ImageFormat.PNG;
 
 import java.awt.color.ICC_ColorSpace;
 import java.awt.color.ICC_Profile;
@@ -15,7 +17,15 @@ import javax.imageio.metadata.IIOMetadataNode;
 
 import org.w3c.dom.Node;
 
+import info.kuechler.image.scale.ImageFormat;
+import info.kuechler.image.scale.metadata.MetadataProvider;
+
 public class PNGMetadataProvider implements MetadataProvider {
+    @Override
+    public boolean canHandle(final ImageFormat format) {
+        return format == PNG;
+    }
+
     @Override
     public IIOMetadata getMetadata(final ImageWriter writer, final BufferedImage source,
             final ICC_ColorSpace outColorSpace, final String colorProfileName, final ImageWriteParam param)

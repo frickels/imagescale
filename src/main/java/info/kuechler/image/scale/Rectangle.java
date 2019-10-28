@@ -1,10 +1,13 @@
-package info.kuechler.image.scale.scale;
+package info.kuechler.image.scale;
 
 import static java.lang.Math.ceil;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Rectangle {
+public class Rectangle implements Serializable {
+    private static final long serialVersionUID = 1438752533688387396L;
+
     private final int width;
     private final int height;
 

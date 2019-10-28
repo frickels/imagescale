@@ -1,4 +1,6 @@
-package info.kuechler.image.scale.metadata;
+package info.kuechler.image.scale.metadata.impl;
+
+import static info.kuechler.image.scale.ImageFormat.JPG;
 
 import java.awt.color.ICC_ColorSpace;
 import java.awt.color.ICC_Profile;
@@ -11,10 +13,20 @@ import javax.imageio.metadata.IIOInvalidTreeException;
 import javax.imageio.metadata.IIOMetadata;
 import javax.imageio.metadata.IIOMetadataNode;
 
+import info.kuechler.image.scale.ImageFormat;
+import info.kuechler.image.scale.metadata.MetadataProvider;
+
 public class JPEGMetadataProvider implements MetadataProvider {
+
+    @Override
+    public boolean canHandle(final ImageFormat format) {
+        return format == JPG;
+    }
+
     @Override
     public IIOMetadata getMetadata(final ImageWriter writer, final BufferedImage source,
-            final ICC_ColorSpace outColorSpace, String colorProfileName, final ImageWriteParam param) throws IIOInvalidTreeException {
+            final ICC_ColorSpace outColorSpace, String colorProfileName, final ImageWriteParam param)
+            throws IIOInvalidTreeException {
         final IIOMetadata metadata = writer.getDefaultImageMetadata(ImageTypeSpecifier.createFromRenderedImage(source),
                 param);
         metadata.mergeTree(metadata.getNativeMetadataFormatName(),

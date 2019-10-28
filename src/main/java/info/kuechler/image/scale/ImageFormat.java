@@ -1,4 +1,4 @@
-package info.kuechler.image.scale.scale;
+package info.kuechler.image.scale;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -32,7 +32,7 @@ public enum ImageFormat {
         return mimeTypes;
     }
 
-    public static Optional<ImageFormat> detectImageFormat(final String name) {
+    public static Optional<ImageFormat> detectImageFormatByName(final String name) {
         return Arrays.stream(values()).filter(format -> {
             return format.getFileEndings().stream()
                     .filter(ending -> ('.' + ending)
@@ -41,10 +41,16 @@ public enum ImageFormat {
         }).findAny();
     }
 
+    public static Optional<ImageFormat> detectImageFormatByFileEnding(final String fileEnding) {
+        return Arrays.stream(values()).filter(format -> {
+            return format.getFileEndings().stream().filter(ending -> ending.equalsIgnoreCase(fileEnding)).findAny()
+                    .isPresent();
+        }).findAny();
+    }
+
     public static Optional<ImageFormat> detectImageFormatByMime(final String mimeType) {
         return Arrays.stream(values()).filter(format -> {
-            return format.getMimeTypes().stream().filter(mime -> mime.equalsIgnoreCase(mimeType)).findAny()
-                    .isPresent();
+            return format.getMimeTypes().stream().filter(mime -> mime.equalsIgnoreCase(mimeType)).findAny().isPresent();
         }).findAny();
     }
 
